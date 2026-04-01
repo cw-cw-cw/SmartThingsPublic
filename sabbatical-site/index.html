@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Colin &amp; Cayla · Sabbatical 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #f0eeea;
+  --white: #ffffff;
+  --text: #1a1a1a;
+  --text-mid: #5a5a5a;
+  --text-light: #9a9a9a;
+  --border: #ddd9d3;
+  --terracotta: #b5714a;
+  --terracotta-lt: #f7ede6;
+  --sage: #5a7a58;
+  --sage-lt: #e7f0e6;
+  --slate: #4a5a6a;
+  --slate-lt: #e4e9ee;
+  --nav-h: 58px;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Outfit', system-ui, sans-serif;
+  --radius: 6px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.07);
+  --shadow-md: 0 4px 24px rgba(0,0,0,0.11);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.65; }
+a { color: var(--terracotta); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; display: block; }
+
+/* ── NAV ── */
+#site-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h); background: #141414;
+  display: flex; align-items: stretch;
+  border-bottom: 1px solid #2a2a2a;
+}
+.nav-brand {
+  display: flex; align-items: center; padding: 0 20px 0 24px;
+  font-family: var(--serif); font-size: 1.05rem; letter-spacing: 0.08em;
+  color: #fff; white-space: nowrap; flex-shrink: 0;
+  border-right: 1px solid #2a2a2a;
+}
+.nav-brand span { color: var(--terracotta); margin-left: 6px; font-style: italic; }
+.nav-tabs {
+  display: flex; align-items: stretch; overflow-x: auto; gap: 0;
+  scrollbar-width: none; flex: 1;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+.nav-tab {
+  font-family: var(--sans); font-size: 0.72rem; font-weight: 500;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: #888; background: none; border: none; cursor: pointer;
+  padding: 0 22px; white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+.nav-tab:hover { color: #ccc; }
+.nav-tab.active { color: #fff; border-bottom-color: var(--terracotta); }
+
+/* ── SECTIONS ── */
+.section { display: none; min-height: calc(100vh - var(--nav-h)); padding-top: var(--nav-h); }
+.section.active { display: block; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; width: 100%;
+  min-height: calc(100vh - var(--nav-h));
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.62) 0%, rgba(10,10,10,0.45) 60%, rgba(10,10,10,0.72) 100%);
+}
+.hero-content { position: relative; z-index: 2; text-align: center; padding: 40px 24px 0; }
+.hero-eyebrow {
+  font-family: var(--sans); font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.25em; text-transform: uppercase; color: var(--terracotta);
+  margin-bottom: 18px;
+}
+.hero-title {
+  font-family: var(--serif); font-size: clamp(3.2rem, 8vw, 7rem);
+  font-weight: 300; color: #fff; letter-spacing: 0.04em;
+  line-height: 1.05; margin-bottom: 16px;
+}
+.hero-title em { font-style: italic; color: rgba(255,255,255,0.85); }
+.hero-sub {
+  font-family: var(--sans); font-size: 0.88rem; font-weight: 300;
+  color: rgba(255,255,255,0.72); letter-spacing: 0.12em; margin-bottom: 8px;
+}
+.hero-divider { width: 40px; height: 1px; background: var(--terracotta); margin: 22px auto; }
+
+/* Overview option cards */
+.overview-cards {
+  position: relative; z-index: 2;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  max-width: 860px; width: 100%; padding: 32px 24px 48px;
+}
+.overview-card {
+  background: rgba(255,255,255,0.09); border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px); border-radius: var(--radius);
+  padding: 24px; cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.overview-card:hover { background: rgba(255,255,255,0.14); transform: translateY(-2px); }
+.ov-label {
+  font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--terracotta); font-weight: 600; margin-bottom: 8px;
+}
+.ov-title {
+  font-family: var(--serif); font-size: 1.55rem; font-weight: 400;
+  color: #fff; margin-bottom: 10px; line-height: 1.2;
+}
+.ov-route {
+  font-size: 0.75rem; color: rgba(255,255,255,0.6); letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+.ov-stats { display: flex; gap: 16px; flex-wrap: wrap; }
+.ov-stat { }
+.ov-stat-val {
+  font-family: var(--serif); font-size: 1.4rem; color: #fff; font-weight: 300;
+}
+.ov-stat-lbl {
+  font-size: 0.62rem; color: rgba(255,255,255,0.5); text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.ov-cta {
+  margin-top: 16px; display: inline-block;
+  font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--terracotta); font-weight: 600;
+}
+
+/* ── INNER HERO (option tabs) ── */
+.inner-hero {
+  position: relative; width: 100%; height: 46vh; min-height: 280px;
+  background-size: cover; background-position: center;
+  display: flex; align-items: flex-end;
+}
+.inner-hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.3), rgba(10,10,10,0.7));
+}
+.inner-hero-content {
+  position: relative; z-index: 2; padding: 28px 32px; width: 100%;
+}
+.inner-hero-eyebrow {
+  font-size: 0.65rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--terracotta); font-weight: 600; margin-bottom: 6px;
+}
+.inner-hero-title {
+  font-family: var(--serif); font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 300; color: #fff; letter-spacing: 0.03em;
+}
+.inner-hero-sub {
+  font-size: 0.8rem; color: rgba(255,255,255,0.65); margin-top: 6px;
+  letter-spacing: 0.06em;
+}
+
+/* ── CONTENT WRAPPER ── */
+.content-wrap { max-width: 1060px; margin: 0 auto; padding: 48px 24px 80px; }
+.section-heading {
+  font-family: var(--serif); font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 300; letter-spacing: 0.03em; margin-bottom: 6px;
+}
+.section-heading em { font-style: italic; color: var(--terracotta); }
+.section-sub {
+  font-size: 0.85rem; color: var(--text-mid); margin-bottom: 36px;
+  letter-spacing: 0.04em;
+}
+.divider { height: 1px; background: var(--border); margin: 32px 0; }
+
+/* ── COMPARISON TABLE ── */
+.compare-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.compare-table {
+  width: 100%; border-collapse: collapse; font-size: 0.85rem;
+  min-width: 560px;
+}
+.compare-table th {
+  font-family: var(--serif); font-size: 1.25rem; font-weight: 400;
+  padding: 14px 18px; text-align: left; border-bottom: 2px solid var(--border);
+}
+.compare-table th.opt-a { color: var(--slate); }
+.compare-table th.opt-b { color: var(--terracotta); }
+.compare-table td {
+  padding: 11px 18px; border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:nth-child(even) td { background: rgba(0,0,0,0.018); }
+.compare-table td.row-label {
+  font-weight: 500; font-size: 0.72rem; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--text-mid); white-space: nowrap;
+}
+.grade {
+  display: inline-block; font-family: var(--serif); font-size: 1.05rem;
+  font-weight: 500; margin-right: 4px;
+}
+.grade-aplus { color: var(--terracotta); }
+.grade-a { color: var(--sage); }
+.grade-aminus { color: var(--slate); }
+
+/* ── LOGISTICS GRID ── */
+.logistics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 32px; }
+.card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow);
+}
+.card-label {
+  font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-light); font-weight: 600; margin-bottom: 10px;
+}
+.card-title {
+  font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
+  margin-bottom: 6px; line-height: 1.25;
+}
+.card-body { font-size: 0.82rem; color: var(--text-mid); line-height: 1.6; }
+.card-body strong { color: var(--text); }
+
+/* Flight cards */
+.flight-segment {
+  display: flex; align-items: center; gap: 10px;
+  font-size: 0.83rem; margin: 8px 0;
+}
+.iata {
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 400;
+  letter-spacing: 0.05em; min-width: 46px;
+}
+.flight-arrow { color: var(--text-light); font-size: 0.9rem; flex: 1; text-align: center; }
+.flight-meta { font-size: 0.73rem; color: var(--text-mid); margin-top: 4px; }
+
+/* Car option cards */
+.car-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 8px; }
+.car-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 16px; box-shadow: var(--shadow);
+}
+.car-card.preferred { border-color: var(--terracotta); }
+.car-name { font-weight: 600; font-size: 0.82rem; margin-bottom: 4px; }
+.car-detail { font-size: 0.74rem; color: var(--text-mid); line-height: 1.5; }
+.car-price { font-family: var(--serif); font-size: 1.05rem; color: var(--terracotta); margin-top: 6px; }
+.preferred-badge {
+  display: inline-block; background: var(--terracotta); color: #fff;
+  font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 1px 6px; border-radius: 3px; margin-bottom: 6px;
+}
+
+/* ── MAP EMBED ── */
+.map-wrap {
+  width: 100%; height: 280px; border-radius: var(--radius);
+  overflow: hidden; border: 1px solid var(--border); margin-bottom: 36px;
+}
+.map-wrap iframe {
+  width: 100%; height: 100%; border: none;
+  filter: saturate(0) contrast(1.1) brightness(1.05);
+}
+
+/* ── TIMELINE ── */
+.timeline { position: relative; }
+.drive-seg {
+  display: flex; align-items: center; gap: 12px;
+  margin: 4px 0 4px 0; padding: 0 4px;
+}
+.drive-seg-line { flex: 1; height: 1px; background: var(--border); }
+.drive-badge {
+  display: flex; align-items: center; gap: 6px;
+  background: var(--slate-lt); border: 1px solid var(--border);
+  border-radius: 20px; padding: 5px 14px;
+  font-size: 0.72rem; color: var(--slate); font-weight: 500; white-space: nowrap;
+}
+
+.day-block { margin-bottom: 18px; }
+.day-header-row {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+}
+.day-pill {
+  background: var(--text); color: #fff;
+  font-size: 0.62rem; font-weight: 600; letter-spacing: 0.1em;
+  padding: 4px 10px; border-radius: 20px; white-space: nowrap;
+}
+.day-date-label {
+  font-family: var(--serif); font-size: 1.15rem; font-weight: 400;
+  color: var(--text-mid);
+}
+.yt-btn {
+  margin-left: auto; display: flex; align-items: center; gap: 5px;
+  font-size: 0.68rem; font-weight: 500; letter-spacing: 0.08em;
+  color: var(--text-light); border: 1px solid var(--border);
+  border-radius: 20px; padding: 4px 10px; white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+}
+.yt-btn:hover { color: #ff0000; border-color: #ff0000; text-decoration: none; }
+.yt-btn svg { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
+
+.day-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+}
+.city-img {
+  height: 160px; background-size: cover; background-position: center;
+  position: relative; display: flex; align-items: flex-end;
+  background-color: #c8c4be;
+}
+.city-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.55) 100%);
+}
+.city-name-overlay {
+  position: relative; z-index: 1; padding: 10px 16px;
+  font-family: var(--serif); font-size: 1.4rem; font-weight: 300;
+  color: #fff; letter-spacing: 0.04em;
+}
+.day-body { padding: 16px 20px; display: flex; flex-direction: column; gap: 12px; }
+
+.detail-row { display: flex; gap: 10px; align-items: flex-start; }
+.tag {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 0.58rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 3px; flex-shrink: 0; margin-top: 1px;
+}
+.tag-stay { background: #e4e4e0; color: #4a4a46; }
+.tag-eat  { background: var(--terracotta-lt); color: #7a3a18; }
+.tag-do   { background: var(--sage-lt); color: #2a4a28; }
+.tag-fly  { background: var(--slate-lt); color: #2a3a4a; }
+
+.detail-content { font-size: 0.82rem; color: var(--text); line-height: 1.6; flex: 1; }
+.detail-content strong { font-weight: 600; }
+.detail-content a { color: var(--terracotta); font-size: 0.76rem; }
+
+.restaurant-block { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.restaurant-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.r-name { font-weight: 600; font-size: 0.83rem; margin-bottom: 3px; }
+.r-desc { font-size: 0.78rem; color: var(--text-mid); margin-bottom: 3px; line-height: 1.5; }
+.r-dishes { font-size: 0.76rem; color: var(--text-light); font-style: italic; margin-bottom: 4px; }
+.r-link { font-size: 0.72rem; color: var(--terracotta); }
+
+.badge {
+  display: inline-block; font-size: 0.6rem; font-weight: 700;
+  letter-spacing: 0.08em; padding: 2px 6px; border-radius: 3px;
+  text-transform: uppercase; margin-left: 5px; vertical-align: middle;
+}
+.badge-gfd { background: var(--terracotta); color: #fff; }
+.badge-gf  { background: var(--terracotta-lt); color: #7a3a18; border: 1px solid #e8c4a8; }
+.badge-df  { background: var(--sage-lt); color: #2a4a28; border: 1px solid #b8d8b6; }
+
+.hotel-link { font-size: 0.73rem; color: var(--terracotta); display: inline-block; margin-top: 2px; }
+
+/* Weather card */
+.weather-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-top: 32px; }
+.weather-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 18px; box-shadow: var(--shadow);
+}
+.weather-city { font-weight: 600; font-size: 0.82rem; margin-bottom: 4px; }
+.weather-temp { font-family: var(--serif); font-size: 1.5rem; color: var(--terracotta); }
+.weather-desc { font-size: 0.75rem; color: var(--text-mid); margin-top: 4px; }
+.weather-grade { font-size: 0.72rem; font-weight: 600; color: var(--sage); margin-top: 4px; }
+
+/* Next Steps */
+.checklist { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.checklist li {
+  display: flex; align-items: flex-start; gap: 12px;
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 14px 18px; font-size: 0.85rem;
+  box-shadow: var(--shadow);
+}
+.check-num {
+  background: var(--text); color: #fff; border-radius: 50%;
+  width: 22px; height: 22px; display: flex; align-items: center; justify-content: center;
+  font-size: 0.68rem; font-weight: 700; flex-shrink: 0;
+}
+.check-content strong { display: block; margin-bottom: 2px; }
+.check-content span { color: var(--text-mid); font-size: 0.78rem; }
+.urgency-high { border-left: 3px solid var(--terracotta); }
+.urgency-med  { border-left: 3px solid var(--sage); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .nav-brand span { display: none; }
+  .nav-tab { padding: 0 14px; font-size: 0.66rem; }
+  .overview-cards { grid-template-columns: 1fr; }
+  .logistics-grid { grid-template-columns: 1fr; }
+  .car-grid { grid-template-columns: 1fr 1fr; }
+  .content-wrap { padding: 32px 16px 60px; }
+  .inner-hero-content { padding: 20px 18px; }
+  .city-img { height: 130px; }
+}
+@media (max-width: 480px) {
+  .car-grid { grid-template-columns: 1fr; }
+  .nav-brand { padding: 0 12px; font-size: 0.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ NAV ═══════════════════════════════════ -->
+<nav id="site-nav">
+  <div class="nav-brand">SABBATICAL<span>2026</span></div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" data-tab="overview">Overview</button>
+    <button class="nav-tab" data-tab="glance">At a Glance</button>
+    <button class="nav-tab" data-tab="option-a">Option A: Upper Midwest</button>
+    <button class="nav-tab" data-tab="option-b">Option B: Mountain → PNW</button>
+    <button class="nav-tab" data-tab="next-steps">Next Steps</button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════ OVERVIEW ════════════════════════════════ -->
+<section id="overview" class="section active">
+  <div class="hero" style="background-image:url('https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1600&q=80')">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">Colin &amp; Cayla · A Sabbatical Proposal</div>
+      <h1 class="hero-title">Ten Days.<br><em>Two Options.</em></h1>
+      <div class="hero-divider"></div>
+      <p class="hero-sub">JUNE 11 – 20, 2026 &nbsp;·&nbsp; DEPARTING TAMPA &nbsp;·&nbsp; GLUTEN-FREE &amp; DAIRY-FREE THROUGHOUT</p>
+    </div>
+    <div class="overview-cards">
+      <div class="overview-card" onclick="switchTab('option-a')">
+        <div class="ov-label">Option A</div>
+        <div class="ov-title">Upper Midwest Corridor</div>
+        <div class="ov-route">TPA → MSP · Drive · ORD → TPA</div>
+        <div class="ov-stats">
+          <div class="ov-stat"><div class="ov-stat-val">~650</div><div class="ov-stat-lbl">miles driven</div></div>
+          <div class="ov-stat"><div class="ov-stat-val">2</div><div class="ov-stat-lbl">nonstop flights</div></div>
+          <div class="ov-stat"><div class="ov-stat-val">A++</div><div class="ov-stat-lbl">GF food</div></div>
+        </div>
+        <div class="ov-cta">Minneapolis · Door County · Chicago →</div>
+      </div>
+      <div class="overview-card" onclick="switchTab('option-b')">
+        <div class="ov-label">Option B</div>
+        <div class="ov-title">Mountain West → Pacific Northwest</div>
+        <div class="ov-route">TPA → SLC · Drive · BZN ✈ PDX · Drive · SEA → TPA</div>
+        <div class="ov-stats">
+          <div class="ov-stat"><div class="ov-stat-val">~800</div><div class="ov-stat-lbl">miles driven</div></div>
+          <div class="ov-stat"><div class="ov-stat-val">3</div><div class="ov-stat-lbl">flights</div></div>
+          <div class="ov-stat"><div class="ov-stat-val">A+++</div><div class="ov-stat-lbl">scenery</div></div>
+        </div>
+        <div class="ov-cta">Park City · Grand Teton · Portland · Seattle →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ AT A GLANCE ══════════════════════════════ -->
+<section id="glance" class="section">
+  <div class="content-wrap">
+    <h2 class="section-heading">At a <em>Glance</em></h2>
+    <p class="section-sub">Side-by-side comparison across every dimension that matters.</p>
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th style="width:160px"></th>
+            <th class="opt-a">Option A — Upper Midwest</th>
+            <th class="opt-b">Option B — Mountain → PNW</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="row-label">Route</td><td>TPA → MSP … drive … ORD → TPA</td><td>TPA → SLC … drive … BZN ✈ PDX … drive … SEA → TPA</td></tr>
+          <tr><td class="row-label">Total Flights</td><td>2 nonstops</td><td>2 nonstops + 1 short hop (BZN→PDX)</td></tr>
+          <tr><td class="row-label">Total Driving</td><td>~650 mi</td><td>~800 mi + 1 short flight</td></tr>
+          <tr><td class="row-label">Longest Drive Day</td><td>4.5 hrs (Stillwater → Door County)</td><td>5.5 hrs (twice: PC→Jackson, Jackson→BZN)</td></tr>
+          <tr><td class="row-label">Rental Cars</td><td>1 one-way SUV (MSP → ORD drop)</td><td>2 cars — drop at BZN, new pickup at PDX</td></tr>
+          <tr><td class="row-label">GF Food</td><td><span class="grade grade-aplus">A++</span> Dedicated GF every day. Minneapolis + Chicago are elite GF cities.</td><td><span class="grade grade-aminus">C+</span> first 6 days · <span class="grade grade-aplus">A++</span> Portland (#10 GF city worldwide)</td></tr>
+          <tr><td class="row-label">Shopping</td><td><span class="grade grade-aplus">A+</span> Galena Main St, Door County boutiques, Wicker Park</td><td><span class="grade grade-a">A−</span> Park City, Jackson Town Square, Portland Alberta/Hawthorne</td></tr>
+          <tr><td class="row-label">Scenery</td><td><span class="grade grade-a">A−</span> Great Lakes, river bluffs, charming small towns</td><td><span class="grade grade-aplus">A+++</span> Grand Teton, Yellowstone corridor, PNW forests</td></tr>
+          <tr><td class="row-label">Weather (June)</td><td><span class="grade grade-aplus">A</span> 70–85°F, reliable sunshine, low humidity</td><td><span class="grade grade-aminus">A−</span> Mostly great; Portland "Juneuary" ~25% rain risk</td></tr>
+          <tr><td class="row-label">Sabbatical Vibe</td><td><span class="grade grade-aplus">A</span> Contemplative, varied pace, charming towns</td><td><span class="grade grade-aminus">A−</span> More adventurous / outdoorsy</td></tr>
+          <tr><td class="row-label">Boutique Hotels</td><td>Hewing, Lora, Edgewater, The Robey — all exceptional</td><td>Washington School House (Michelin Keys), Hotel Jackson, The Lark, Hotel Lucia</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:32px;">
+      <div class="card">
+        <div class="card-label">Best For</div>
+        <div class="card-title" style="color:var(--slate)">Option A</div>
+        <div class="card-body">Cayla's shopping + food priorities. Most reliable GF dining every single day. Charming small-town energy. Contemplative sabbatical feel.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Best For</div>
+        <div class="card-title" style="color:var(--terracotta)">Option B</div>
+        <div class="card-body">Jaw-dropping scenery. Grand Teton is the visual peak of either trip. Portland's GF scene is legendary. More "bucket list" energy.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">The Question</div>
+        <div class="card-title">Towns or Mountains?</div>
+        <div class="card-body">Option A = charming, editorial, effortlessly GF. Option B = dramatic, adventurous, transcendent views. Both are excellent sabbatical trips.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTION A and OPTION B sections will be added next -->
+<section id="option-a" class="section">
+  <div class="inner-hero" style="background-image:url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=1600&q=80')">
+    <div class="inner-hero-overlay"></div>
+    <div class="inner-hero-content">
+      <div class="inner-hero-eyebrow">Option A &nbsp;&middot;&nbsp; 10 Days</div>
+      <h2 class="inner-hero-title">Upper Midwest Corridor</h2>
+      <p class="inner-hero-sub">Minneapolis &rarr; Stillwater &rarr; Door County &rarr; Madison &rarr; Galena &rarr; Chicago</p>
+    </div>
+  </div>
+  <div class="content-wrap">
+
+    <!-- Flights + Map -->
+    <div class="logistics-grid" style="grid-template-columns:1fr 1fr 1fr">
+      <div class="card">
+        <div class="card-label">Outbound Flight</div>
+        <div class="flight-segment">
+          <div><div class="iata">TPA</div><div class="flight-meta">Tampa</div></div>
+          <div class="flight-arrow">&xrarr;&nbsp; nonstop &nbsp;3h30m</div>
+          <div><div class="iata">MSP</div><div class="flight-meta">Minneapolis</div></div>
+        </div>
+        <div class="card-body" style="margin-top:10px"><strong>Delta / Sun Country</strong><br>Target ~10:30am depart &rarr; ~1:00pm CT arrive<br>Pick up SUV at MSP airport</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Return Flight</div>
+        <div class="flight-segment">
+          <div><div class="iata">ORD</div><div class="flight-meta">Chicago</div></div>
+          <div class="flight-arrow">&xrarr;&nbsp; nonstop &nbsp;3h00m</div>
+          <div><div class="iata">TPA</div><div class="flight-meta">Tampa</div></div>
+        </div>
+        <div class="card-body" style="margin-top:10px"><strong>Delta / American / United / Southwest</strong><br>Target ~2:00pm depart &rarr; ~5:30pm ET arrive<br>Drop SUV at ORD airport</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Rental Car &mdash; One-Way MSP &rarr; ORD</div>
+        <div class="car-grid" style="grid-template-columns:1fr"><div class="car-card preferred"><div class="preferred-badge">&#9733; IDEAL</div><div class="car-name">Cadillac Escalade</div><div class="car-detail">Enterprise / National · Premium SUV</div><div class="car-price">$150–200/day</div></div><div class="car-card"><div class="car-name">Chevrolet Tahoe / Suburban</div><div class="car-detail">Full-size SUV, road trip comfort</div><div class="car-price">$100–150/day</div></div><div class="car-card"><div class="car-name">Lincoln Navigator</div><div class="car-detail">Luxury alternative, similar space</div><div class="car-price">$150–180/day</div></div>        </div>
+        <div class="card-body" style="margin-top:8px;font-size:0.74rem;color:var(--text-light)">One-way fee typically $100–200 (Enterprise/National)</div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="map-wrap">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-96.5%2C41.0%2C-86.5%2C47.8&amp;layer=mapnik" loading="lazy" title="Option A Route Map"></iframe>
+    </div>
+
+    <!-- Timeline -->
+    <h3 class="section-heading" style="margin-bottom:6px">Day-by-Day <em>Itinerary</em></h3>
+    <p class="section-sub">Jun 11&ndash;20 &nbsp;&middot;&nbsp; All restaurants verified GF+DF friendly</p>
+
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 01</div>
+    <div class="day-date-label">WED &middot; JUN 11</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Minneapolis+travel+guide+things+to+do" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Minneapolis</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1478827819961-7e0c2dea2d72?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Minneapolis, MN</div>
+    </div>
+    <div class="day-body"><div class="detail-row">
+  <span class="tag tag-stay">STAY</span>
+  <div class="detail-content"><strong>Hewing Hotel</strong> — 1897 warehouse, North Loop. Exposed brick, timber beams, rooftop pool + sauna. Tullibee Scandinavian restaurant. <a href="https://hewinghotel.com" target="_blank" rel="noopener">hewinghotel.com</a></div>
+</div><div class="detail-row">
+  <span class="tag tag-eat">EAT</span>
+  <div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Owamni by The Sioux Chef<span class="badge badge-gfd">&#10003; Dedicated GF</span><span class="badge badge-df">DF</span></div>
+  <div class="r-desc">James Beard &ldquo;Best New Restaurant&rdquo; winner. Indigenous cuisine. <strong>Reserve well in advance.</strong></div>
+  <div class="r-dishes">Bison Tartare &middot; Wild Rice Bowl w/ braised rabbit &middot; Wojapi w/ seed crackers. No wheat, dairy, or refined sugar.</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/mn/minneapolis/dedicated-facilities" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div></div>
+</div><div class="detail-row">
+  <span class="tag tag-do">DO</span>
+  <div class="detail-content">Stone Arch Bridge walk &nbsp;&middot;&nbsp; Explore North Loop neighborhood &nbsp;&middot;&nbsp; Rooftop sauna at Hewing</div>
+</div>    </div>
+  </div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 02</div>
+    <div class="day-date-label">THU &middot; JUN 12</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Minneapolis+art+food+things+to+do+2026" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Minneapolis Day 2</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Minneapolis, MN</div>
+    </div>
+    <div class="day-body"><div class="detail-row">
+  <span class="tag tag-eat">EAT</span>
+  <div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Sassy Spoon<span class="badge badge-gfd">&#10003; Dedicated GF</span><span class="badge badge-df">DF</span></div>
+  <div class="r-desc">100% dedicated GF. Near Lake Nokomis. Seasonal brunch, GF pancakes, grain bowls.</div>
+  <div class="r-dishes">GF pancakes &middot; grain bowls &middot; seasonal specials</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/mn/minneapolis/dedicated-facilities" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Colita<span class="badge badge-gfd">&#10003; Dedicated GF</span><span class="badge badge-df">DF</span></div>
+  <div class="r-desc">Tex-Oaxacan, dedicated GF. Small dining room — <strong>reserve well in advance.</strong></div>
+  <div class="r-dishes">Mole Negro (naturally DF) &middot; Carnitas on corn tortillas &middot; GF Churros &middot; Mezcal cocktails</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/mn/minneapolis" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Burning Brothers Brewing<span class="badge badge-gfd">&#10003; Dedicated GF</span></div>
+  <div class="r-desc">100% dedicated GF brewery. Perfect after-dinner stop.</div>
+  <div class="r-dishes">Roasted Coffee Strong Ale &middot; Pyro APA</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/mn/minneapolis/dedicated-facilities" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div></div>
+</div><div class="detail-row">
+  <span class="tag tag-do">DO</span>
+  <div class="detail-content">MartinPatrick3 — THE &lsquo;man&rsquo;s store&rsquo; in North Loop (leather, grooming, home goods) &nbsp;&middot;&nbsp; Walker Art Center + Minneapolis Sculpture Garden (Spoonbridge and Cherry) &nbsp;&middot;&nbsp; Bike the Chain of Lakes</div>
+</div>    </div>
+  </div>
+</div>
+<div class="drive-seg">
+  <div class="drive-seg-line"></div>
+  <div class="drive-badge">&#9654; Minneapolis &rarr; Stillwater &nbsp;&middot;&nbsp; 40 min &middot; 25 mi</div>
+  <div class="drive-seg-line"></div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 03</div>
+    <div class="day-date-label">FRI &middot; JUN 13</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Stillwater+Minnesota+travel+guide" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Stillwater</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Stillwater, MN</div>
+    </div>
+    <div class="day-body"><div class="detail-row">
+  <span class="tag tag-stay">STAY</span>
+  <div class="detail-content"><strong>Lora Hotel</strong> — Restored 1886 brewery in the bluffs. Fireplace rooms. 9.4 Exceptional on Expedia. Provenance Hotels (same family as Alida/Emeline). <a href="https://www.lorahotel.com" target="_blank" rel="noopener">www.lorahotel.com</a></div>
+</div><div class="detail-row">
+  <span class="tag tag-eat">EAT</span>
+  <div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Hola Arepa (before leaving Minneapolis)<span class="badge badge-gfd">&#10003; Dedicated GF</span><span class="badge badge-df">DF</span></div>
+  <div class="r-desc">Entirely GF corn-based arepas menu. Great road-day breakfast.</div>
+  <div class="r-dishes">Pulled Pork Arepa (skip cheese) &middot; Black Bean &amp; Sweet Potato (vegan) &middot; Yuca Fries</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/mn/minneapolis" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">The Wild Hare<span class="badge badge-gf">GF</span><span class="badge badge-df">DF</span></div>
+  <div class="r-desc">Dedicated GF fryer, celiac-aware. Retro 80s vibes on historic Main Street.</div>
+  <div class="r-dishes">GF Onion Rings &middot; Moroccan Cheese Curds w/ harissa (ask DF) &middot; Curry Bowl &middot; GF Burgers</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/biz/the-wild-hare/5843434334715904" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Feller at Lora Hotel<span class="badge badge-gf">GF</span></div>
+  <div class="r-desc">Upscale, locally-sourced. Your hotel restaurant for the evening.</div>
+  <div class="r-dishes">Seasonal menu, locally-sourced</div>
+  
+</div></div>
+</div><div class="detail-row">
+  <span class="tag tag-do">DO</span>
+  <div class="detail-content">Historic Main Street walk — antique shops, bookstores, art galleries &nbsp;&middot;&nbsp; Paddleboard or kayak the St. Croix River &nbsp;&middot;&nbsp; Stillwater Lift Bridge views</div>
+</div>    </div>
+  </div>
+</div>
+<div class="drive-seg">
+  <div class="drive-seg-line"></div>
+  <div class="drive-badge">&#9654; Stillwater &rarr; Door County, WI &nbsp;&middot;&nbsp; 4.5 hrs &middot; scenic Wisconsin farmland</div>
+  <div class="drive-seg-line"></div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 04</div>
+    <div class="day-date-label">SAT &middot; JUN 14</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Door+County+Wisconsin+travel+guide+things+to+do" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Door County</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1505118380757-91f5f5632de0?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Door County, WI</div>
+    </div>
+    <div class="day-body"><div class="detail-row">
+  <span class="tag tag-stay">STAY</span>
+  <div class="detail-content"><strong>The D&ouml;rr Hotel or Hillside Waterfront Hotel</strong> — Fish Creek / Sister Bay. Waterfront views, walkable to village. <a href="https://www.doorcounty.com" target="_blank" rel="noopener">www.doorcounty.com</a></div>
+</div><div class="detail-row">
+  <span class="tag tag-eat">EAT</span>
+  <div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Door County Fish Boil<span class="badge badge-gf">GF</span><span class="badge badge-df">DF</span></div>
+  <div class="r-desc"><strong>Naturally GF+DF</strong> — whitefish, potatoes &amp; onions boiled over an open fire. The dramatic boilover finale is spectacle dining. Confirm no flour in prep.</div>
+  <div class="r-dishes">Lake whitefish &middot; red potatoes &middot; sweet onions &middot; cherry pie (ask GF)</div>
+  
+</div></div>
+</div><div class="detail-row">
+  <span class="tag tag-do">DO</span>
+  <div class="detail-content">Walk Fish Creek village — cherry everything, pottery, candles, galleries &nbsp;&middot;&nbsp; Peninsula State Park — Eagle Tower viewpoint, Sunset Trail bike ride &nbsp;&middot;&nbsp; Sunset over Green Bay from the bluffs</div>
+</div>    </div>
+  </div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 05</div>
+    <div class="day-date-label">SUN &middot; JUN 15</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Door+County+Wisconsin+kayak+Sister+Bay+Ephraim" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Door County Day 2</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Door County, WI</div>
+    </div>
+    <div class="day-body"><div class="detail-row">
+  <span class="tag tag-eat">EAT</span>
+  <div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">White Gull Inn<span class="badge badge-gf">GF</span></div>
+  <div class="r-desc">Famous for Door County fish boils. Historic inn dining.</div>
+  <div class="r-dishes">Fish boil &middot; cherry desserts &middot; seasonal specials</div>
+  
+</div></div>
+</div><div class="detail-row">
+  <span class="tag tag-do">DO</span>
+  <div class="detail-content">Kayak along limestone bluffs — Cave Point County Park (stunning) &nbsp;&middot;&nbsp; Ephraim &amp; Sister Bay — quintessential gift-shop villages, cherry orchards, art galleries &nbsp;&middot;&nbsp; Optional: Washington Island ferry from Northport &nbsp;&middot;&nbsp; Cave Point swimming if weather permits</div>
+</div>    </div>
+  </div>
+</div>
+<div class="drive-seg">
+  <div class="drive-seg-line"></div>
+  <div class="drive-badge">&#9654; Door County &rarr; Madison, WI &nbsp;&middot;&nbsp; 3.5 hrs through Green Bay</div>
+  <div class="drive-seg-line"></div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 06</div>
+    <div class="day-date-label">MON &middot; JUN 16</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Madison+Wisconsin+travel+guide+State+Street+Capitol" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Madison</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Madison, WI</div>
+    </div>
+    <div class="day-body"><div class="detail-row">
+  <span class="tag tag-stay">STAY</span>
+  <div class="detail-content"><strong>The Edgewater</strong> — Historic lakefront resort on Lake Mendota. Full spa. Terrace dining with lake views. <a href="https://www.theedgewater.com" target="_blank" rel="noopener">www.theedgewater.com</a></div>
+</div><div class="detail-row">
+  <span class="tag tag-eat">EAT</span>
+  <div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Madison Chocolate Company<span class="badge badge-gfd">&#10003; Dedicated GF</span></div>
+  <div class="r-desc">Dedicated GF caf&eacute;. &ldquo;We ordered a GF ham &amp; cheese croissant!&rdquo; — guest review.</div>
+  <div class="r-dishes">GF croissants &middot; smoothie bowls &middot; pastries &middot; hot chocolate</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/wi/madison" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">La Taguara<span class="badge badge-gfd">&#10003; Dedicated GF</span><span class="badge badge-df">DF</span></div>
+  <div class="r-desc">Venezuelan arepas, dedicated GF fryer. Staff knowledgeable about celiac safety.</div>
+  <div class="r-dishes">Reina Pepiada arepa (ask DF) &middot; Pabellon &middot; Cachapas</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/wi/madison" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div></div>
+</div><div class="detail-row">
+  <span class="tag tag-do">DO</span>
+  <div class="detail-content">Walk State Street &rarr; Capitol Square — bookstores, record shops, boutiques &nbsp;&middot;&nbsp; Dane County Farmers Market (Saturdays — one of largest in the US) &nbsp;&middot;&nbsp; Lake Mendota paddle or lakefront walk from the Edgewater</div>
+</div>    </div>
+  </div>
+</div>
+<div class="drive-seg">
+  <div class="drive-seg-line"></div>
+  <div class="drive-badge">&#9654; Madison &rarr; Galena, IL &nbsp;&middot;&nbsp; 1.5 hrs</div>
+  <div class="drive-seg-line"></div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 07</div>
+    <div class="day-date-label">TUE &middot; JUN 17</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Galena+Illinois+travel+guide+Main+Street+shopping" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Galena</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Galena, IL</div>
+    </div>
+    <div class="day-body"><div class="detail-row">
+  <span class="tag tag-eat">EAT</span>
+  <div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Fritz and Frites<span class="badge badge-gf">GF</span></div>
+  <div class="r-desc">French-German bistro, GF options. Call ahead for celiac accommodations.</div>
+  <div class="r-dishes">Seasonal German &amp; French bistro fare with GF modifications</div>
+  
+</div></div>
+</div><div class="detail-row">
+  <span class="tag tag-do">DO</span>
+  <div class="detail-content"><strong>THE SHOPPING DAY</strong> — 125+ shops in a 6-block brick hillside Main Street: Jellycat-tier gifts, leather goods, candles, wine tasting, fudge, art galleries &nbsp;&middot;&nbsp; Walk to Ulysses S. Grant&rsquo;s historic home &nbsp;&middot;&nbsp; Photograph the most scenic Main Street in the Midwest &nbsp;&middot;&nbsp; Optional overnight at a Galena B&amp;B (or drive on to Chicago, 2.5 hrs)</div>
+</div>    </div>
+  </div>
+</div>
+<div class="drive-seg">
+  <div class="drive-seg-line"></div>
+  <div class="drive-badge">&#9654; Galena &rarr; Chicago &nbsp;&middot;&nbsp; 2.5 hrs</div>
+  <div class="drive-seg-line"></div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 08</div>
+    <div class="day-date-label">WED &middot; JUN 18</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Chicago+Wicker+Park+travel+guide+shopping+dining" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Chicago</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Chicago, IL</div>
+    </div>
+    <div class="day-body"><div class="detail-row">
+  <span class="tag tag-stay">STAY</span>
+  <div class="detail-content"><strong>The Robey</strong> — Art Deco tower in Wicker Park. Rooftop bar with skyline views. Floor-to-ceiling windows. Chicago&rsquo;s coolest neighborhood. <a href="https://www.therobey.com" target="_blank" rel="noopener">www.therobey.com</a></div>
+</div><div class="detail-row">
+  <span class="tag tag-eat">EAT</span>
+  <div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Defloured<span class="badge badge-gfd">&#10003; Dedicated GF</span><span class="badge badge-df">DF</span></div>
+  <div class="r-desc">100% dedicated GF. &ldquo;I never imagined finding a place as perfect as Defloured.&rdquo; Chef&rsquo;s wife has celiac.</div>
+  <div class="r-dishes">Fried Chicken Sandwich (ask DF bun) &middot; Mac &amp; Cheese w/ cashew cream &middot; Seasonal bowls</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/il/chicago/dedicated-facilities" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Small Cheval<span class="badge badge-gf">GF</span><span class="badge badge-df">DF</span></div>
+  <div class="r-desc">&ldquo;The GOAT of Chicago burgers.&rdquo; Personal allergy form filled for every order.</div>
+  <div class="r-dishes">The Burger on GF bun (no cheese, extra sauce)</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/il/chicago" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div></div>
+</div><div class="detail-row">
+  <span class="tag tag-do">DO</span>
+  <div class="detail-content">Afternoon shopping — Wicker Park + Bucktown: Chicago&rsquo;s best independent boutique district, vintage, design stores &nbsp;&middot;&nbsp; Check in &amp; rooftop cocktail at The Robey</div>
+</div>    </div>
+  </div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 09</div>
+    <div class="day-date-label">THU &middot; JUN 19</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Chicago+architecture+river+cruise+things+to+do" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Chicago Day 2</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1494522358652-f30e61a60313?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Chicago, IL</div>
+    </div>
+    <div class="day-body"><div class="detail-row">
+  <span class="tag tag-eat">EAT</span>
+  <div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Wheat&rsquo;s End Cafe<span class="badge badge-gfd">&#10003; Dedicated GF</span></div>
+  <div class="r-desc">The dedicated GF brunch spot every celiac traveler in Chicago goes to.</div>
+  <div class="r-dishes">Brunch classics, all GF, ask for DF options</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/il/chicago/dedicated-facilities" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Farewell dinner — your choice</div>
+  <div class="r-desc">Chicago has excellent GF-friendly dining throughout. Ask hotel concierge for current recommendations.</div>
+  <div class="r-dishes"></div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/il/chicago" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div></div>
+</div><div class="detail-row">
+  <span class="tag tag-do">DO</span>
+  <div class="detail-content"><strong>Architecture River Cruise</strong> — the single best thing to do in Chicago. Book through Chicago Architecture Center. &nbsp;&middot;&nbsp; Art Institute of Chicago (if time) &nbsp;&middot;&nbsp; Mag Mile window shopping &amp; Lincoln Park &nbsp;&middot;&nbsp; Rooftop bar at The Robey for farewell sunset</div>
+</div>    </div>
+  </div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 10</div>
+    <div class="day-date-label">FRI &middot; JUN 20</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Chicago+O'Hare+airport+tips" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Departure Day</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1533591380893-1a0fbff9e01e?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Fly Home: ORD &rarr; TPA</div>
+    </div>
+    <div class="day-body"><div class="detail-row">
+  <span class="tag tag-fly">FLY</span>
+  <div class="detail-content">
+    <strong>ORD &rarr; TPA nonstop</strong><br>
+    Target ~2:00pm CT departure &rarr; ~5:30pm ET arrival &nbsp;&middot;&nbsp; ~3 hrs<br>
+    Delta / American / United / Southwest<br>
+    <span style="color:var(--text-light);font-size:0.76rem">Drop rental car at ORD — Enterprise/National one-way return. Allow 90 min before flight.</span>
+  </div>
+</div>    </div>
+  </div>
+</div>
+    <div class="divider"></div>
+    <h3 class="section-heading">June <em>Weather</em></h3>
+    <p class="section-sub">Option A has the most reliable weather of any route.</p>
+    <div class="weather-grid">
+      <div class="weather-card"><div class="weather-city">Minneapolis</div><div class="weather-temp">70&ndash;82&deg;F</div><div class="weather-desc">Low humidity, 15+ hrs daylight. Best weather window of the year.</div><div class="weather-grade">Grade: A</div></div>
+      <div class="weather-card"><div class="weather-city">Door County, WI</div><div class="weather-temp">72&ndash;80&deg;F</div><div class="weather-desc">Comfortable lake breezes off Green Bay.</div><div class="weather-grade">Grade: A</div></div>
+      <div class="weather-card"><div class="weather-city">Madison, WI</div><div class="weather-temp">74&ndash;82&deg;F</div><div class="weather-desc">Pleasant, low-humidity summer days.</div><div class="weather-grade">Grade: A</div></div>
+      <div class="weather-card"><div class="weather-city">Chicago</div><div class="weather-temp">75&ndash;85&deg;F</div><div class="weather-desc">Sunny &amp; pleasant. Lakefront can be breezy.</div><div class="weather-grade">Grade: A</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="option-b" class="section">
+  <div class="inner-hero" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=80')">
+    <div class="inner-hero-overlay"></div>
+    <div class="inner-hero-content">
+      <div class="inner-hero-eyebrow">Option B &nbsp;&middot;&nbsp; 10 Days</div>
+      <h2 class="inner-hero-title">Mountain West &rarr; Pacific Northwest</h2>
+      <p class="inner-hero-sub">Salt Lake City &rarr; Park City &rarr; Jackson Hole &rarr; Grand Teton &rarr; Bozeman &#x2708; Portland &rarr; Seattle</p>
+    </div>
+  </div>
+  <div class="content-wrap">
+
+    <!-- Flights -->
+    <div class="logistics-grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="card">
+        <div class="card-label">Outbound Flight</div>
+        <div class="flight-segment">
+          <div><div class="iata">TPA</div><div class="flight-meta">Tampa</div></div>
+          <div class="flight-arrow">&xrarr;&nbsp;nonstop&nbsp;4h30m</div>
+          <div><div class="iata">SLC</div><div class="flight-meta">Salt Lake City</div></div>
+        </div>
+        <div class="card-body" style="margin-top:10px"><strong>Delta / Southwest</strong><br>Target ~10:00am ET &rarr; ~12:30pm MT<br>Pick up SUV #1 at SLC airport</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Mid-Trip Hop</div>
+        <div class="flight-segment">
+          <div><div class="iata">BZN</div><div class="flight-meta">Bozeman</div></div>
+          <div class="flight-arrow">&xrarr;&nbsp;nonstop&nbsp;1h50m</div>
+          <div><div class="iata">PDX</div><div class="flight-meta">Portland</div></div>
+        </div>
+        <div class="card-body" style="margin-top:10px"><strong>Alaska Airlines</strong><br>~4:00pm MT &rarr; ~4:50pm PT (Day 7)<br>Drop SUV #1 at BZN. Pick up SUV #2 at PDX.</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Return Flight</div>
+        <div class="flight-segment">
+          <div><div class="iata">SEA</div><div class="flight-meta">Seattle</div></div>
+          <div class="flight-arrow">&xrarr;&nbsp;nonstop&nbsp;5h30m</div>
+          <div><div class="iata">TPA</div><div class="flight-meta">Tampa</div></div>
+        </div>
+        <div class="card-body" style="margin-top:10px"><strong>Alaska Airlines / Delta</strong><br>Target ~10:00am PT &rarr; ~5:30pm ET<br>Drop SUV #2 at SEA airport</div>
+      </div>
+    </div>
+
+    <!-- Rental Cars -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px">
+      <div class="card">
+        <div class="card-label">Rental Car #1 &mdash; SLC &rarr; BZN Drop</div>
+        <div class="car-grid"><div class="car-card preferred"><div class="preferred-badge">&#9733; IDEAL</div><div class="car-name">Cadillac Escalade</div><div class="car-detail">Enterprise / National · Ideal for mountain passes</div><div class="car-price">$150–200/day</div></div><div class="car-card"><div class="car-name">Chevrolet Tahoe</div><div class="car-detail">Full-size, widely available in SLC</div><div class="car-price">$100–150/day</div></div><div class="car-card"><div class="car-name">Jeep Grand Cherokee L</div><div class="car-detail">Luxury-ish, handles mountain roads well</div><div class="car-price">$120–160/day</div></div>        </div>
+      </div>
+      <div class="card">
+        <div class="card-label">Rental Car #2 &mdash; PDX &rarr; SEA Drop (3 days)</div>
+        <div class="car-grid"><div class="car-card preferred"><div class="preferred-badge">&#9733; IDEAL</div><div class="car-name">Range Rover Sport</div><div class="car-detail">Turo — if you want luxury for PNW</div><div class="car-price">$200–280/day</div></div><div class="car-card"><div class="car-name">Volvo XC90</div><div class="car-detail">Very PNW-appropriate, comfortable</div><div class="car-price">$150–200/day</div></div><div class="car-card"><div class="car-name">Cadillac Escalade</div><div class="car-detail">Consistency from Car #1</div><div class="car-price">$150–200/day</div></div>        </div>
+      </div>
+    </div>
+
+    <!-- Map -->
+    <div class="map-wrap">
+      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=-124.5%2C40.0%2C-109.0%2C49.5&amp;layer=mapnik" loading="lazy" title="Option B Route Map"></iframe>
+    </div>
+
+    <!-- Timeline -->
+    <h3 class="section-heading" style="margin-bottom:6px">Day-by-Day <em>Itinerary</em></h3>
+    <p class="section-sub">Jun 11&ndash;20 &nbsp;&middot;&nbsp; GF food improves dramatically in Portland (Day 8+)</p>
+
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 01</div>
+    <div class="day-date-label">WED &middot; JUN 11</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Park+City+Utah+travel+guide+Main+Street" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Park City</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Salt Lake City / Park City, UT</div>
+    </div>
+    <div class="day-body"><div class="detail-row"><span class="tag tag-stay">STAY</span><div class="detail-content"><strong>Washington School House Hotel</strong> — Two MICHELIN Keys. Converted 1889 schoolhouse, only 12 rooms. Complimentary breakfast + afternoon charcuterie &amp; drinks. Pool. 5.0 service rating. <a href="https://www.washingtonschoolhouse.com" target="_blank" rel="noopener">www.washingtonschoolhouse.com</a></div></div><div class="detail-row"><span class="tag tag-eat">EAT</span><div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Good Food Gluten Free Bakery (SLC stop en route)<span class="badge badge-gfd">&#10003; Dedicated GF</span></div>
+  <div class="r-desc"><strong>Stock up on bread, wraps, cinnamon rolls</strong> for mountain days when GF options are limited.</div>
+  <div class="r-dishes">GF bread loaves &middot; wraps &middot; cinnamon rolls &middot; cookies</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/ut/salt-lake-city/dedicated-facilities" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Zest Kitchen &amp; Bar (SLC)<span class="badge badge-gfd">&#10003; Dedicated GF+DF</span></div>
+  <div class="r-desc">100% dedicated GF + 100% vegan = automatically DF. Everything safe by default.</div>
+  <div class="r-dishes">Korean BBQ Bowl &middot; Loaded Nachos w/ cashew queso &middot; Raw Cheesecake</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/ut/salt-lake-city/dedicated-facilities" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div></div></div><div class="detail-row"><span class="tag tag-do">DO</span><div class="detail-content">40-min drive SLC &rarr; Park City&nbsp;&middot;&nbsp;Walk Park City Main Street upon arrival&nbsp;&middot;&nbsp;Enjoy Washington School House afternoon charcuterie &amp; drinks</div></div>    </div>
+  </div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 02</div>
+    <div class="day-date-label">THU &middot; JUN 12</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Park+City+Utah+Main+Street+shopping+galleries" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Park City Day 2</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Park City, UT</div>
+    </div>
+    <div class="day-body"><div class="detail-row"><span class="tag tag-stay">STAY</span><div class="detail-content"><strong>Washington School House Hotel</strong> — Enjoy complimentary breakfast. <a href="https://www.washingtonschoolhouse.com" target="_blank" rel="noopener">www.washingtonschoolhouse.com</a></div></div><div class="detail-row"><span class="tag tag-eat">EAT</span><div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Sugarhouse BBQ<span class="badge badge-gfd">&#10003; Dedicated GF</span><span class="badge badge-df">DF</span></div>
+  <div class="r-desc">Owner has celiac. All sauces GF. GF cornbread.</div>
+  <div class="r-dishes">Smoked Brisket (naturally DF) &middot; GF Cornbread &middot; Pulled Pork Plate</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/ut/salt-lake-city" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Park City Main Street restaurants<span class="badge badge-gf">GF</span></div>
+  <div class="r-desc">Handle, Riverhorse, or similar. Call ahead for celiac accommodations.</div>
+  <div class="r-dishes">Upscale seasonal menus with GF modifications</div>
+  
+</div></div></div><div class="detail-row"><span class="tag tag-do">DO</span><div class="detail-content">All-day <strong>Park City Main Street</strong> — galleries, western wear, high-end outdoor gear, jewelry, boutiques&nbsp;&middot;&nbsp;Olympic Park tour (US Olympic ski jump facilities)&nbsp;&middot;&nbsp;Hotel afternoon charcuterie &amp; drinks</div></div>    </div>
+  </div>
+</div><div class="drive-seg"><div class="drive-seg-line"></div><div class="drive-badge">&#9654; Park City &rarr; Jackson Hole &nbsp;&middot;&nbsp; 5.5 hrs BIG DRIVE DAY &middot; stunning scenery</div><div class="drive-seg-line"></div></div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 03</div>
+    <div class="day-date-label">FRI &middot; JUN 13</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Jackson+Hole+Wyoming+travel+guide+things+to+do" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Jackson Hole</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1566438480900-0609be27a4be?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Jackson Hole, WY</div>
+    </div>
+    <div class="day-body"><div class="detail-row"><span class="tag tag-stay">STAY</span><div class="detail-content"><strong>Hotel Jackson</strong> — 4.8&#9733; TripAdvisor, 9.8 Expedia. First LEED-built hotel in Jackson. Gas fireplaces, Nespresso, BVLGARI amenities, private hot tub time slots. <a href="https://hoteljackson.com" target="_blank" rel="noopener">hoteljackson.com</a></div></div><div class="detail-row"><span class="tag tag-eat">EAT</span><div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Jackson restaurants<span class="badge badge-gf">GF</span></div>
+  <div class="r-desc">Glean (locally-sourced, GF-friendly) or The Kitchen — call ahead for celiac. Pack GF road snacks from Good Food Bakery.</div>
+  <div class="r-dishes">Bear Lake stop en route (turquoise water) &middot; Star Valley ranchland views</div>
+  
+</div></div></div><div class="detail-row"><span class="tag tag-do">DO</span><div class="detail-content">Stop at turquoise <strong>Bear Lake</strong> en route&nbsp;&middot;&nbsp;Walk <strong>Jackson Town Square</strong> — elk antler arches, western galleries, guns, leather, Yeti, cowboy boots, taxidermy art&nbsp;&middot;&nbsp;THIS IS &lsquo;MAN&rsquo;S STORE&rsquo; HEAVEN</div></div>    </div>
+  </div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 04</div>
+    <div class="day-date-label">SAT &middot; JUN 14</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Grand+Teton+National+Park+travel+guide+Jenny+Lake" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Grand Teton</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Grand Teton National Park</div>
+    </div>
+    <div class="day-body"><div class="detail-row"><span class="tag tag-eat">EAT</span><div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Pack GF snacks from Good Food Bakery stockpile<span class="badge badge-gfd">&#10003; Dedicated GF</span></div>
+  <div class="r-desc"><strong>Limited food options in the park</strong> — very important to pack snacks. Jackson restaurants for dinner upon return.</div>
+  <div class="r-dishes">Your stockpile + Jackson dinner</div>
+  
+</div></div></div><div class="detail-row"><span class="tag tag-do">DO</span><div class="detail-content"><strong>THIS IS THE VISUAL PEAK OF THE ENTIRE TRIP</strong>&nbsp;&middot;&nbsp;Jenny Lake — boat shuttle + hike to Hidden Falls&nbsp;&middot;&nbsp;Signal Mountain summit drive — panoramic Teton panorama&nbsp;&middot;&nbsp;Teton Park Road + Moose-Wilson Road for wildlife&nbsp;&middot;&nbsp;June = wildflower season against snow-capped peaks. Moose + elk everywhere.</div></div>    </div>
+  </div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 05</div>
+    <div class="day-date-label">SUN &middot; JUN 15</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Jackson+Hole+Wyoming+Snake+River+float+wildlife+art" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Jackson Day 2</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1551362110-a073d2e1bdad?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Jackson Hole, WY</div>
+    </div>
+    <div class="day-body"><div class="detail-row"><span class="tag tag-eat">EAT</span><div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Jackson restaurants<span class="badge badge-gf">GF</span></div>
+  <div class="r-desc">Day two in Jackson — more time to explore. Check in with hotel concierge for current GF recommendations.</div>
+  <div class="r-dishes">Local seasonal options</div>
+  
+</div></div></div><div class="detail-row"><span class="tag tag-do">DO</span><div class="detail-content"><strong>National Museum of Wildlife Art</strong> — stunning building carved into a cliff, world-class collection&nbsp;&middot;&nbsp;Scenic float trip on the Snake River — calm, wildlife-focused, ~3 hrs&nbsp;&middot;&nbsp;Deeper exploration of Jackson&rsquo;s 30+ galleries and boutique shops</div></div>    </div>
+  </div>
+</div><div class="drive-seg"><div class="drive-seg-line"></div><div class="drive-badge">&#9654; Jackson Hole &rarr; Bozeman, MT &nbsp;&middot;&nbsp; 5.5 hrs BIG DRIVE DAY #2</div><div class="drive-seg-line"></div></div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 06</div>
+    <div class="day-date-label">MON &middot; JUN 16</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Bozeman+Montana+travel+guide+Main+Street" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Bozeman</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1501854140801-50d01698950b?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Bozeman, MT</div>
+    </div>
+    <div class="day-body"><div class="detail-row"><span class="tag tag-stay">STAY</span><div class="detail-content"><strong>The Lark Bozeman</strong> — Boutique, design-forward hotel. Walkable to Downtown Main Street. <a href="https://www.thelarkhotels.com/bozeman" target="_blank" rel="noopener">www.thelarkhotels.com/bozeman</a></div></div><div class="detail-row"><span class="tag tag-eat">EAT</span><div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Farmacy<span class="badge badge-gfd">&#10003; Dedicated GF</span><span class="badge badge-df">DF</span></div>
+  <div class="r-desc">Dedicated GF fryer. &ldquo;The go-to for Bozeman-based celiacs.&rdquo;</div>
+  <div class="r-dishes">Japan Chicken and Fries &middot; Fondue (ask DF)</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/mt/bozeman" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Montana Ale Works<span class="badge badge-gf">GF</span></div>
+  <div class="r-desc">Bozeman institution in a railroad car building. Dedicated GF fryer, full GF menu.</div>
+  <div class="r-dishes">GF pub menu &middot; local Montana beers</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/mt/bozeman" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div></div></div><div class="detail-row"><span class="tag tag-do">DO</span><div class="detail-content">Walk <strong>Downtown Bozeman Main Street</strong>&nbsp;&middot;&nbsp;Schnee&rsquo;s — legendary outdoor/western gear store since 1946&nbsp;&middot;&nbsp;Heyday — curated gifts and home goods&nbsp;&middot;&nbsp;Evening galleries and restaurants on Main Street</div></div>    </div>
+  </div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 07</div>
+    <div class="day-date-label">TUE &middot; JUN 17</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Portland+Oregon+travel+guide+food+things+to+do" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Portland</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1564937028927-f7dff4ad00b5?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Portland, OR</div>
+    </div>
+    <div class="day-body"><div class="detail-row"><span class="tag tag-stay">STAY</span><div class="detail-content"><strong>Hotel Lucia or Woodlark Hotel</strong> — Both boutique, downtown Portland. Hotel Lucia: Provenance Hotels (same family as Lora in Stillwater!). David Bowie photography collection. Woodlark: Two merged historic buildings, Bullard restaurant. <a href="https://www.hotelluciaportland.com" target="_blank" rel="noopener">www.hotelluciaportland.com</a></div></div><div class="detail-row"><span class="tag tag-eat">EAT</span><div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Breakfast in Bozeman — Jam!<span class="badge badge-gf">GF</span></div>
+  <div class="r-desc">Famous Bozeman breakfast spot. GF pancakes available.</div>
+  <div class="r-dishes">GF pancakes &middot; eggs &middot; breakfast classics</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/mt/bozeman" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Portland dinner on arrival<span class="badge badge-gfd">&#10003; Dedicated GF</span></div>
+  <div class="r-desc">Portland is ranked <strong>#10 GF city in the world</strong> with 50 dedicated GF places. Your first taste of GF paradise.</div>
+  <div class="r-dishes">Walk to any nearby Portland GF spot</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/or/portland/dedicated-facilities" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div></div></div><div class="detail-row"><span class="tag tag-do">DO</span><div class="detail-content">Morning: Final Bozeman stroll + breakfast&nbsp;&middot;&nbsp;Drop Car #1 at BZN airport&nbsp;&middot;&nbsp;&#9992; BZN &rarr; PDX nonstop, Alaska Airlines, ~4:00pm MT &rarr; 4:50pm PT&nbsp;&middot;&nbsp;Pick up Car #2 at PDX&nbsp;&middot;&nbsp;Evening: Hotel Lucia / Woodlark check-in, Portland neighborhood walk</div></div>    </div>
+  </div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 08</div>
+    <div class="day-date-label">WED &middot; JUN 18</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Portland+Oregon+gluten+free+restaurants+best+food" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Portland GF</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1539302577158-7d87aab5db82?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Portland, OR — GF Food Day</div>
+    </div>
+    <div class="day-body"><div class="detail-row"><span class="tag tag-eat">EAT</span><div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">New Cascadia Traditional<span class="badge badge-gfd">&#10003; Dedicated GF</span></div>
+  <div class="r-desc">Dedicated GF bakery. GF challah, baguettes, maple bars, donut holes. &ldquo;You&rsquo;ll question if it&rsquo;s GF.&rdquo; Lines on weekends — arrive early.</div>
+  <div class="r-dishes">GF challah &middot; baguettes &middot; maple bars &middot; chocolate-filled donut holes</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/or/portland/dedicated-facilities" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Kann<span class="badge badge-gfd">&#10003; Dedicated GF+DF</span></div>
+  <div class="r-desc">Top Chef winner Gregory Gourdet&rsquo;s restaurant. <strong>Dedicated GF AND DF.</strong> Haitian wood-fire cuisine. Named best new restaurant in America by Esquire.</div>
+  <div class="r-dishes">Wood-fired whole fish &middot; rotisserie chicken &middot; Haitian-spiced vegetables &middot; rum cocktails</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/or/portland" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Petunia&rsquo;s Pies &amp; Pastries<span class="badge badge-gfd">&#10003; Dedicated GF+DF</span></div>
+  <div class="r-desc">Dedicated GF + vegan. Afternoon treat between shopping.</div>
+  <div class="r-dishes">Bumbleberry peach pie &middot; hazelnut coconut streusel</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/or/portland/dedicated-facilities" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Ground Breaker Brewing<span class="badge badge-gfd">&#10003; Dedicated GF</span></div>
+  <div class="r-desc">Dedicated GF brewery + gastropub. Brewed with GF oats and chestnuts. Full GF food menu.</div>
+  <div class="r-dishes">Seasonal GF beers &middot; full gastropub menu</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/or/portland/dedicated-facilities" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div></div></div><div class="detail-row"><span class="tag tag-do">DO</span><div class="detail-content">Shopping: <strong>Alberta Street</strong> &amp; <strong>Hawthorne Boulevard</strong> — Portland&rsquo;s best independent boutique districts&nbsp;&middot;&nbsp;<strong>Powell&rsquo;s Books</strong> — covers an entire city block, largest independent bookstore in the world&nbsp;&middot;&nbsp;Powell&rsquo;s alone is worth the trip to Portland</div></div>    </div>
+  </div>
+</div><div class="drive-seg"><div class="drive-seg-line"></div><div class="drive-badge">&#9654; Portland &rarr; Seattle &nbsp;&middot;&nbsp; 3 hrs · I-5 North, straightforward</div><div class="drive-seg-line"></div></div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 09</div>
+    <div class="day-date-label">THU &middot; JUN 19</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Seattle+Washington+travel+guide+Capitol+Hill+Pike+Place" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Seattle</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1502175353174-a7a70e73b362?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Seattle, WA</div>
+    </div>
+    <div class="day-body"><div class="detail-row"><span class="tag tag-stay">STAY</span><div class="detail-content"><strong>The State Hotel or Thompson Seattle</strong> — Both boutique, downtown. Thompson has rooftop bar with Space Needle views. <a href="https://www.thompsonhotels.com/hotels/seattle" target="_blank" rel="noopener">www.thompsonhotels.com/hotels/seattle</a></div></div><div class="detail-row"><span class="tag tag-eat">EAT</span><div class="detail-content"><div class="restaurant-block">
+  <div class="r-name">Gluten Free Gem (before leaving Portland)<span class="badge badge-gfd">&#10003; Dedicated GF</span></div>
+  <div class="r-desc">Dedicated GF bakery since 2006. Final Portland GF stop before the drive.</div>
+  <div class="r-dishes">GF pastries &middot; breads &middot; morning treats</div>
+  <a class="r-link" href="https://www.findmeglutenfree.com/us/or/portland/dedicated-facilities" target="_blank" rel="noopener">findmeglutenfree.com &rarr;</a>
+</div><div class="restaurant-block">
+  <div class="r-name">Seattle GF options<span class="badge badge-gf">GF</span></div>
+  <div class="r-desc">Schilling Cider House (dedicated GF cider bar, Capitol Hill), various GF-friendly restaurants throughout.</div>
+  <div class="r-dishes">Capitol Hill dining scene &middot; Pike Place Market GF finds</div>
+  
+</div></div></div><div class="detail-row"><span class="tag tag-do">DO</span><div class="detail-content">Walk <strong>Pike Place Market</strong> — iconic, GF finds, flower market, fish toss&nbsp;&middot;&nbsp;<strong>Capitol Hill</strong> — Seattle&rsquo;s best shopping, cocktail bars, indie restaurants&nbsp;&middot;&nbsp;Rooftop bar with Space Needle &amp; mountain views&nbsp;&middot;&nbsp;Evening stroll along the waterfront</div></div>    </div>
+  </div>
+</div>
+<div class="day-block">
+  <div class="day-header-row">
+    <div class="day-pill">DAY 10</div>
+    <div class="day-date-label">FRI &middot; JUN 20</div>
+    <a class="yt-btn" href="https://www.youtube.com/results?search_query=Seattle+airport+SEA+tips" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M23.495 6.205a3.007 3.007 0 00-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 00.527 6.205a31.247 31.247 0 00-.522 5.805 31.247 31.247 0 00.522 5.783 3.007 3.007 0 002.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 002.088-2.088 31.247 31.247 0 00.5-5.783 31.247 31.247 0 00-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg> Departure Day</a>
+  </div>
+  <div class="day-card">
+    <div class="city-img" style="background-image:url('https://images.unsplash.com/photo-1533591380893-1a0fbff9e01e?auto=format&fit=crop&w=900&q=80')">
+      <div class="city-name-overlay">Fly Home: SEA &rarr; TPA</div>
+    </div>
+    <div class="day-body"><div class="detail-row">
+  <span class="tag tag-fly">FLY</span>
+  <div class="detail-content">
+    <strong>SEA &rarr; TPA nonstop</strong><br>
+    Target ~10:00am PT departure &rarr; ~5:30pm ET arrival &nbsp;&middot;&nbsp; ~5.5 hrs<br>
+    Alaska Airlines / Delta<br>
+    <span style="color:var(--text-light);font-size:0.76rem">Drop Car #2 at SEA airport. Allow 90 min before flight.</span>
+  </div>
+</div>    </div>
+  </div>
+</div>
+    <div class="divider"></div>
+    <h3 class="section-heading">June <em>Weather</em></h3>
+    <p class="section-sub">Mostly excellent — Portland carries a &ldquo;Juneuary&rdquo; grey risk.</p>
+    <div class="weather-grid">
+      <div class="weather-card"><div class="weather-city">Salt Lake City / Park City</div><div class="weather-temp">70&ndash;88&deg;F</div><div class="weather-desc">Dry, sunny, perfect. Park City 8–10°F cooler than SLC.</div><div class="weather-grade">Grade: A</div></div>
+      <div class="weather-card"><div class="weather-city">Jackson Hole</div><div class="weather-temp">70&ndash;75&deg;F</div><div class="weather-desc">Gorgeous. Wildflower season. Perfect hiking weather.</div><div class="weather-grade">Grade: A</div></div>
+      <div class="weather-card"><div class="weather-city">Bozeman, MT</div><div class="weather-temp">75&ndash;82&deg;F</div><div class="weather-desc">Dry and comfortable. Montana at its finest.</div><div class="weather-grade">Grade: A</div></div>
+      <div class="weather-card"><div class="weather-city">Portland</div><div class="weather-temp">72&ndash;78&deg;F</div><div class="weather-desc">&ldquo;Juneuary&rdquo; — ~25% daily rain chance. Improving late June. Pack a light layer.</div><div class="weather-grade">Grade: B+</div></div>
+      <div class="weather-card"><div class="weather-city">Seattle</div><div class="weather-temp">68&ndash;72&deg;F</div><div class="weather-desc">Similar to Portland, slightly cooler. Often clears by afternoon.</div><div class="weather-grade">Grade: B+</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="next-steps" class="section">
+  <div class="content-wrap">
+    <h2 class="section-heading">Next <em>Steps</em></h2>
+    <p class="section-sub">What to book, when to book it, and in what order.</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
+
+      <!-- Booking checklist -->
+      <div>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin-bottom:16px;color:var(--text-mid);letter-spacing:0.04em">BOOKING CHECKLIST</h3>
+        <ul class="checklist">
+          <li class="urgency-high">
+            <div class="check-num">1</div>
+            <div class="check-content">
+              <strong>Choose your option &mdash; A or B</strong>
+              <span>Everything else depends on this decision. Once you pick, the rest flows naturally.</span>
+            </div>
+          </li>
+          <li class="urgency-high">
+            <div class="check-num">2</div>
+            <div class="check-content">
+              <strong>Book flights immediately</strong>
+              <span>Nonstop routes on this corridor are limited and fill fast. Target now for best pricing. Option A: TPA&rarr;MSP + ORD&rarr;TPA. Option B: TPA&rarr;SLC + BZN&rarr;PDX + SEA&rarr;TPA.</span>
+            </div>
+          </li>
+          <li class="urgency-high">
+            <div class="check-num">3</div>
+            <div class="check-content">
+              <strong>Book boutique hotels immediately</strong>
+              <span>Washington School House (12 rooms — sells out months ahead), Hotel Jackson, Hewing Hotel, Lora Hotel, The Robey. These small boutique properties have very limited inventory for summer dates.</span>
+            </div>
+          </li>
+          <li class="urgency-high">
+            <div class="check-num">4</div>
+            <div class="check-content">
+              <strong>Reserve Owamni by The Sioux Chef (Option A)</strong>
+              <span>This is the #1 reservation to secure. James Beard winner, small dining room, books weeks out. Reservations open on Resy — set an alert.</span>
+            </div>
+          </li>
+          <li class="urgency-high">
+            <div class="check-num">5</div>
+            <div class="check-content">
+              <strong>Reserve Kann (Option B — Portland)</strong>
+              <span>Top Chef winner Gregory Gourdet&rsquo;s restaurant. Dedicated GF+DF. One of the most sought-after reservations in Portland. Book as early as possible.</span>
+            </div>
+          </li>
+          <li class="urgency-med">
+            <div class="check-num">6</div>
+            <div class="check-content">
+              <strong>Book rental car(s)</strong>
+              <span>Option A: One-way MSP&rarr;ORD, Enterprise or National (for status points). Book now for best rate. Option B: SLC&rarr;BZN + PDX&rarr;SEA. Book both at once.</span>
+            </div>
+          </li>
+          <li class="urgency-med">
+            <div class="check-num">7</div>
+            <div class="check-content">
+              <strong>Reserve Colita &amp; Architecture Cruise (Option A)</strong>
+              <span>Colita in Minneapolis: small room, popular. Chicago Architecture Center River Cruise: popular on summer weekends — book a specific time slot.</span>
+            </div>
+          </li>
+          <li class="urgency-med">
+            <div class="check-num">8</div>
+            <div class="check-content">
+              <strong>Option B: Book Grand Teton activities</strong>
+              <span>Jenny Lake boat shuttle (first-come-first-served, arrive early). Snake River float trip in Jackson — book with a guide company (Barker-Ewing, etc.).</span>
+            </div>
+          </li>
+          <li>
+            <div class="check-num">9</div>
+            <div class="check-content">
+              <strong>Remaining hotel nights &amp; dining</strong>
+              <span>The Edgewater Madison, D&ouml;rr/Hillside Door County, Hotel Lucia/Woodlark Portland, Thompson/State Hotel Seattle. Then remaining restaurant reservations in each city.</span>
+            </div>
+          </li>
+          <li>
+            <div class="check-num">10</div>
+            <div class="check-content">
+              <strong>Pack GF road snacks for mountain days (Option B)</strong>
+              <span>Order or pack GF crackers, bars, trail mix. The Good Food GF Bakery stop in SLC on Day 1 is your supply run for Days 3&ndash;6 in mountain country.</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Key notes + links -->
+      <div>
+        <h3 style="font-family:var(--serif);font-size:1.3rem;font-weight:400;margin-bottom:16px;color:var(--text-mid);letter-spacing:0.04em">KEY RESOURCES</h3>
+
+        <div class="card" style="margin-bottom:16px">
+          <div class="card-label">GF Restaurant Databases</div>
+          <div class="card-body" style="display:flex;flex-direction:column;gap:6px;margin-top:6px">
+            <a href="https://www.findmeglutenfree.com/us/mn/minneapolis/dedicated-facilities" target="_blank" rel="noopener" style="font-size:0.8rem">&#10003; Minneapolis dedicated GF &rarr;</a>
+            <a href="https://www.findmeglutenfree.com/us/wi/madison" target="_blank" rel="noopener" style="font-size:0.8rem">&#10003; Madison, WI GF &rarr;</a>
+            <a href="https://www.findmeglutenfree.com/us/il/chicago/dedicated-facilities" target="_blank" rel="noopener" style="font-size:0.8rem">&#10003; Chicago dedicated GF &rarr;</a>
+            <a href="https://www.findmeglutenfree.com/us/ut/salt-lake-city/dedicated-facilities" target="_blank" rel="noopener" style="font-size:0.8rem">&#10003; Salt Lake City dedicated GF &rarr;</a>
+            <a href="https://www.findmeglutenfree.com/us/mt/bozeman" target="_blank" rel="noopener" style="font-size:0.8rem">&#10003; Bozeman, MT GF &rarr;</a>
+            <a href="https://www.findmeglutenfree.com/us/or/portland/dedicated-facilities" target="_blank" rel="noopener" style="font-size:0.8rem">&#10003; Portland dedicated GF &rarr;</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom:16px">
+          <div class="card-label">Hotel Links</div>
+          <div class="card-body" style="display:flex;flex-direction:column;gap:6px;margin-top:6px">
+            <a href="https://hewinghotel.com" target="_blank" rel="noopener" style="font-size:0.8rem">Hewing Hotel &mdash; Minneapolis &rarr;</a>
+            <a href="https://www.lorahotel.com" target="_blank" rel="noopener" style="font-size:0.8rem">Lora Hotel &mdash; Stillwater &rarr;</a>
+            <a href="https://www.theedgewater.com" target="_blank" rel="noopener" style="font-size:0.8rem">The Edgewater &mdash; Madison &rarr;</a>
+            <a href="https://www.therobey.com" target="_blank" rel="noopener" style="font-size:0.8rem">The Robey &mdash; Chicago (Wicker Park) &rarr;</a>
+            <a href="https://www.washingtonschoolhouse.com" target="_blank" rel="noopener" style="font-size:0.8rem">Washington School House &mdash; Park City &rarr;</a>
+            <a href="https://hoteljackson.com" target="_blank" rel="noopener" style="font-size:0.8rem">Hotel Jackson &mdash; Jackson Hole &rarr;</a>
+            <a href="https://www.thelarkhotels.com/bozeman" target="_blank" rel="noopener" style="font-size:0.8rem">The Lark &mdash; Bozeman &rarr;</a>
+            <a href="https://www.hotelluciaportland.com" target="_blank" rel="noopener" style="font-size:0.8rem">Hotel Lucia &mdash; Portland &rarr;</a>
+            <a href="https://www.woodlarkhotel.com" target="_blank" rel="noopener" style="font-size:0.8rem">Woodlark Hotel &mdash; Portland &rarr;</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Important Notes</div>
+          <div class="card-body" style="margin-top:6px;display:flex;flex-direction:column;gap:8px;font-size:0.8rem">
+            <div><strong>Always mention celiac disease</strong> (not just "gluten-free preference") when booking restaurants. This triggers stricter kitchen protocols.</div>
+            <div><strong>Washington School House</strong> has only 12 rooms and is the hardest hotel to book — prioritize this one above all others for Option B.</div>
+            <div><strong>Owamni</strong> is the most important restaurant reservation on the entire trip (Option A). Use Resy and set up alerts for your dates.</div>
+            <div><strong>One-way car rental fees:</strong> Enterprise/National typically charge $100–200 for one-way drops. Factor into budget comparison.</div>
+            <div><strong>June weather window:</strong> June 11–20 is generally the sweet spot — post-Memorial Day crowds, pre-July 4th crowds, best weather in both regions.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="divider" style="margin-top:48px"></div>
+    <div style="text-align:center;padding:32px 0 16px">
+      <div style="font-family:var(--serif);font-size:2rem;font-weight:300;color:var(--text-mid);letter-spacing:0.06em;margin-bottom:8px">
+        Enjoy your sabbatical, Colin &amp; <em>Cayla.</em>
+      </div>
+      <div style="font-size:0.75rem;color:var(--text-light);letter-spacing:0.15em;text-transform:uppercase">
+        June 11&ndash;20, 2026 &nbsp;&middot;&nbsp; Departing Tampa &nbsp;&middot;&nbsp; Ten Days of Possibility
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+function switchTab(tabId) {
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelector('[data-tab="'+tabId+'"]').classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('.nav-tab').forEach(tab => {
+  tab.addEventListener('click', () => switchTab(tab.dataset.tab));
+});
+</script>
+</body>
+</html>
